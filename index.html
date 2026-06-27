@@ -9,7 +9,7 @@
 <meta property="og:description" content="Run private AI models on your own machine. Fast, simple, local." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://loxa.dev" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='15' fill='%230c0d13'/><g fill='none' stroke='%238b92ff' stroke-width='3.2' stroke-linejoin='round' stroke-linecap='round'><path d='M19 21 L15 8 L28 15'/><path d='M45 21 L49 8 L36 15'/><path d='M15 28 C15 18 23 14 32 14 C41 14 49 18 49 28 C49 42 42 53 32 53 C22 53 15 42 15 28 Z'/><path d='M32 40 L32 45'/><path d='M23 42 C26 45 29 46 32 45'/><path d='M41 42 C38 45 35 46 32 45'/></g><g fill='%238b92ff'><circle cx='25' cy='30' r='2.4'/><circle cx='39' cy='30' r='2.4'/><path d='M29 37 L35 37 L32 41 Z'/><circle cx='21' cy='23' r='1.5'/><circle cx='43' cy='23' r='1.5'/><circle cx='32' cy='20' r='1.5'/></g></svg>" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='15' fill='%230c0d13'/><g fill='%238b92ff'><path d='M18 19 L15 7 L29 14 Z'/><path d='M46 19 L49 7 L35 14 Z'/><path d='M32 13 C21 13 14 21 14 33 C14 45 21 53 32 53 C43 53 50 45 50 33 C50 21 43 13 32 13 Z'/></g><g fill='%230c0d13'><circle cx='25' cy='34' r='3'/><circle cx='39' cy='34' r='3'/><path d='M29.5 40 L34.5 40 L32 43.5 Z'/></g></svg>" />
 <script>
   // set theme before paint — no flash
   (function(){
@@ -77,9 +77,9 @@
   .brand .mark{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
     background:linear-gradient(150deg,rgba(108,117,255,.30),rgba(155,134,255,.12));
     border:1px solid var(--hair-strong);box-shadow:0 0 24px var(--glow-1)}
-  .brand .mark svg{width:17px;height:17px;display:block}
-  .brand .mark svg .stroke{fill:none;stroke:var(--text);stroke-width:3.2;stroke-linejoin:round;stroke-linecap:round}
+  .brand .mark svg{width:18px;height:18px;display:block}
   .brand .mark svg .fill{fill:var(--text)}
+  .brand .mark svg .eye{fill:var(--bg)}
   .nav-r{display:flex;align-items:center;gap:22px}
   .nav-r a{color:var(--muted);text-decoration:none;font-family:var(--mono);font-size:13px;letter-spacing:-.01em;transition:color .15s}
   .nav-r a:hover{color:var(--text)}
@@ -174,7 +174,7 @@
 
 <header>
   <div class="wrap nav">
-    <div class="brand"><span class="mark"><svg viewBox="0 0 64 64" aria-hidden="true"><g class="stroke"><path d="M19 21 L15 8 L28 15"/><path d="M45 21 L49 8 L36 15"/><path d="M15 28 C15 18 23 14 32 14 C41 14 49 18 49 28 C49 42 42 53 32 53 C22 53 15 42 15 28 Z"/><path d="M32 40 L32 45"/><path d="M23 42 C26 45 29 46 32 45"/><path d="M41 42 C38 45 35 46 32 45"/></g><g class="fill"><circle cx="25" cy="30" r="2.4"/><circle cx="39" cy="30" r="2.4"/><path d="M29 37 L35 37 L32 41 Z"/><circle cx="21" cy="23" r="1.5"/><circle cx="43" cy="23" r="1.5"/><circle cx="32" cy="20" r="1.5"/></g></svg></span> loxa</div>
+    <div class="brand"><span class="mark"><svg viewBox="0 0 64 64" aria-hidden="true"><g class="fill"><path d="M18 19 L15 7 L29 14 Z"/><path d="M46 19 L49 7 L35 14 Z"/><path d="M32 13 C21 13 14 21 14 33 C14 45 21 53 32 53 C43 53 50 45 50 33 C50 21 43 13 32 13 Z"/></g><g class="eye"><circle cx="25" cy="34" r="3"/><circle cx="39" cy="34" r="3"/><path d="M29.5 40 L34.5 40 L32 43.5 Z"/></g></svg></span> loxa</div>
     <div class="nav-r">
       <a class="hide-sm" href="#features">features</a>
       <a class="hide-sm" href="#install">install</a>
@@ -243,7 +243,7 @@
 
 <footer>
   <div class="wrap foot">
-    <div class="brand"><span class="mark"><svg viewBox="0 0 64 64" aria-hidden="true"><g class="stroke"><path d="M19 21 L15 8 L28 15"/><path d="M45 21 L49 8 L36 15"/><path d="M15 28 C15 18 23 14 32 14 C41 14 49 18 49 28 C49 42 42 53 32 53 C22 53 15 42 15 28 Z"/><path d="M32 40 L32 45"/><path d="M23 42 C26 45 29 46 32 45"/><path d="M41 42 C38 45 35 46 32 45"/></g><g class="fill"><circle cx="25" cy="30" r="2.4"/><circle cx="39" cy="30" r="2.4"/><path d="M29 37 L35 37 L32 41 Z"/><circle cx="21" cy="23" r="1.5"/><circle cx="43" cy="23" r="1.5"/><circle cx="32" cy="20" r="1.5"/></g></svg></span> loxa</div>
+    <div class="brand"><span class="mark"><svg viewBox="0 0 64 64" aria-hidden="true"><g class="fill"><path d="M18 19 L15 7 L29 14 Z"/><path d="M46 19 L49 7 L35 14 Z"/><path d="M32 13 C21 13 14 21 14 33 C14 45 21 53 32 53 C43 53 50 45 50 33 C50 21 43 13 32 13 Z"/></g><g class="eye"><circle cx="25" cy="34" r="3"/><circle cx="39" cy="34" r="3"/><path d="M29.5 40 L34.5 40 L32 43.5 Z"/></g></svg></span> loxa</div>
     <div class="links">
       <a href="https://github.com/loxadev">github</a>
       <a href="https://www.npmjs.com/package/@loxadev/cli">npm</a>
