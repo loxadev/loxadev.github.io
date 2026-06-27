@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Loxa — local inference studio & CLI</title>
+<meta name="description" content="Run private AI models on your own machine. A fast, simple local inference studio and CLI — an open alternative to Ollama and LM Studio." />
+<meta property="og:title" content="Loxa — local inference studio & CLI" />
+<meta property="og:description" content="Run private AI models on your own machine. Fast, simple, local." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://loxa.dev" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦊</text></svg>" />
+<style>
+  :root{
+    --bg:#0b0d10; --panel:#13161b; --panel2:#191d24; --line:#262b33;
+    --text:#e7ebf0; --muted:#9aa4b2; --accent:#7c9cff; --accent2:#5bd6a8;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;
+    -webkit-font-smoothing:antialiased;background-image:radial-gradient(900px 500px at 50% -10%,rgba(124,156,255,.10),transparent 60%);}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px}
+  header{display:flex;align-items:center;justify-content:space-between;padding:26px 0}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:.2px}
+  .brand .logo{font-size:22px}
+  nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:14px}
+  nav a:hover{color:var(--text)}
+  .hero{text-align:center;padding:64px 0 28px}
+  .badge{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--accent2);
+    border:1px solid var(--line);background:var(--panel);padding:5px 12px;border-radius:999px;margin-bottom:22px}
+  h1{font-size:clamp(34px,6vw,56px);line-height:1.08;margin:0 0 16px;letter-spacing:-1px;font-weight:800}
+  h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{font-size:clamp(16px,2.4vw,20px);color:var(--muted);max-width:620px;margin:0 auto 30px}
+  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{font-family:var(--sans);font-size:15px;font-weight:600;text-decoration:none;padding:11px 20px;border-radius:10px;border:1px solid var(--line)}
+  .btn.p{background:linear-gradient(90deg,var(--accent),#6f86ff);color:#0b0d10;border-color:transparent}
+  .btn.s{background:var(--panel);color:var(--text)}
+  .btn:hover{filter:brightness(1.08)}
+  .term{margin:42px auto 0;max-width:680px;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-align:left;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+  .term .bar{display:flex;gap:7px;padding:13px 15px;border-bottom:1px solid var(--line);background:var(--panel2)}
+  .dot{width:11px;height:11px;border-radius:50%}.r{background:#ff5f57}.y{background:#febc2e}.g{background:#28c840}
+  .term pre{margin:0;padding:20px;font-family:var(--mono);font-size:14px;line-height:1.9;overflow-x:auto}
+  .term .c{color:var(--accent2)} .term .o{color:var(--muted)} .term .p{color:var(--accent)}
+  section{padding:46px 0;border-top:1px solid var(--line);margin-top:46px}
+  h2{font-size:24px;margin:0 0 22px;letter-spacing:-.3px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .card h3{margin:0 0 6px;font-size:16px}
+  .card p{margin:0;color:var(--muted);font-size:14px}
+  .install{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  .install .box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .install .lbl{font-size:12px;color:var(--muted);margin-bottom:7px;text-transform:uppercase;letter-spacing:.5px}
+  .install code{font-family:var(--mono);font-size:13px;color:var(--text);word-break:break-all}
+  footer{padding:40px 0 60px;color:var(--muted);font-size:13px;text-align:center;border-top:1px solid var(--line);margin-top:46px}
+  footer a{color:var(--accent);text-decoration:none}
+  .note{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:center;margin-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><span class="logo">🦊</span> loxa</div>
+    <nav>
+      <a href="https://github.com/loxadev">GitHub</a>
+      <a href="https://www.npmjs.com/package/@loxadev/cli">npm</a>
+      <a href="https://crates.io/crates/loxa">crates</a>
+      <a href="https://pypi.org/project/loxa/">PyPI</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <span class="badge">early development · v0.0.1</span>
+    <h1>Run private AI models<br><span class="grad">on your own machine</span></h1>
+    <p class="sub">Loxa is a fast, simple local inference studio and CLI. An open alternative to Ollama and LM Studio — your models, your hardware, no cloud.</p>
+    <div class="cta">
+      <a class="btn p" href="https://github.com/loxadev">Star on GitHub</a>
+      <a class="btn s" href="#install">Install</a>
+    </div>
+
+    <div class="term">
+      <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+<pre><span class="p">$</span> <span class="c">loxa</span> run llama3
+<span class="o">→ pulling llama3 · loading · ready on :11434</span>
+
+<span class="p">$</span> <span class="c">loxa</span> pull gemma
+<span class="p">$</span> <span class="c">loxa</span> serve
+<span class="p">$</span> <span class="c">loxa</span> studio   <span class="o"># open the desktop UI</span></pre>
+    </div>
+    <p class="note">⚠️ Work in progress — names reserved, building in the open.</p>
+  </div>
+
+  <section>
+    <h2>Why Loxa</h2>
+    <div class="grid">
+      <div class="card"><h3>100% local</h3><p>Models run on your machine. Nothing leaves your hardware — private by default.</p></div>
+      <div class="card"><h3>One simple CLI</h3><p><code>run</code>, <code>pull</code>, <code>serve</code>, <code>studio</code>. Familiar if you've used Ollama.</p></div>
+      <div class="card"><h3>Studio + CLI</h3><p>A clean desktop app when you want it, a fast terminal when you don't.</p></div>
+      <div class="card"><h3>Built in Rust</h3><p>Native, lightweight, cross-platform. Powered by Rust + Tauri.</p></div>
+    </div>
+  </section>
+
+  <section id="install">
+    <h2>Install</h2>
+    <div class="install">
+      <div class="box"><div class="lbl">npm</div><code>npm i -g @loxadev/cli</code></div>
+      <div class="box"><div class="lbl">cargo</div><code>cargo install loxa</code></div>
+      <div class="box"><div class="lbl">pip</div><code>pip install loxa</code></div>
+    </div>
+    <p class="note">Packages reserved during development — install targets coming with the first release.</p>
+  </section>
+
+  <footer>
+    <p>loxa.dev — local inference studio &amp; CLI</p>
+    <p>
+      <a href="https://github.com/loxadev">GitHub</a> ·
+      <a href="https://www.npmjs.com/package/@loxadev/cli">npm</a> ·
+      <a href="https://crates.io/crates/loxa">crates.io</a> ·
+      <a href="https://pypi.org/project/loxa/">PyPI</a>
+    </p>
+    <p>© 2026 Loxa · MIT licensed</p>
+  </footer>
+</div>
+</body>
+</html>
